@@ -3,3 +3,7 @@
 *.sass.map
 *.scss.map
 settings.py
+
+node_modules
+dist/*
+*.log
