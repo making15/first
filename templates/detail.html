@@ -20,6 +20,7 @@
 
 
     <link rel="stylesheet" type="text/css" href="../static/main.css">
+    <script src="../static/move.js"></script>
 
 
 <!-- 폰트랑 아이콘 -->
@@ -36,72 +37,7 @@
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
 <!-- 스타일 -->
-<style>
 
-body, html{
-  height:100%;
-
-}
-.swiper-container,
-.swiper-wrapper,
-.swiper-slide{
-  width: 100%;
-  height: 100%;
-}
- .swiper-slide {
-   text-align: center;
-   font-size: 18px;
-  background: transparent;
-   /* Center slide text vertically */
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   
-}
-
-.swiper-pagination { 
-position: absolute; 
-display: sticky;
-top: 50%; 
-left: 80%; 
-transform: translateY(-50%);
-
-
-}
-
-
-.swiper-pagination-bullet { 
-width: 100%;
-min-width: 80px; 
-min-height: 100px; 
-background: transparent;
-display: sticky;
-opacity: 1; 
-writing-mode: vertical-rl;
-text-orientation: mixed;
-color: white;
-}
-.swiper-pagination-bullet-active:before { 
-content: ""; 
-
-position: absolute; 
-left:90%;
-
-
-border-left: 10px solid transparent; 
-border-bottom: 10px solid transparent; 
-border-right: 10px solid blue; 
-width: 10px;
-margin-top:-10px;
-
-transition: all .5 ease-in-out; 
-
-
-
-
-}
-
-</style>
 </head>
 
 
@@ -111,7 +47,7 @@ transition: all .5 ease-in-out;
     <div class="container mx-auto px-4 py-2 flex items-center">
 
       <!-- 로고 -->
-            <div class="flex">
+            <div class="flex cursor-pointer" onclick="home();">
         <h1 class="text-blue-800 font-bold uppercase text-2xl pl-2 pr-4 xl:px-5 py-2">
         <i class="fas fa fa-globe fa-sm text-white"></i>
         <span class="text-gray-800">J</span>E<span class="text-gray-800">J</span>U</h1>
@@ -171,7 +107,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
       <button
         class="w-full text-left flex items-center outline-none focus:outline-none"
       >
-        <span class="pr-1 flex-1">미술</span>
+        <span class="pr-1 flex-1" onclick="classlist();">미술</span>
         <span class="mr-auto">
           <svg
             class="fill-current h-4 w-4
@@ -216,7 +152,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
       "
           >
             <li class="px-3 py-1 hover:bg-gray-100">카드</li>
-            <li class="px-3 py-1 hover:bg-gray-100">풍경화</li>
+            <li class="px-3 py-1 hover:bg-gray-100 cursor-pointer" onclick="detail();">풍경화</li>
           </ul>
         </li>
       </ul>
@@ -602,6 +538,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
         </ul>
       </nav>
           </aside>
+
 
   </header>
 <body class="antialiased bg-blue-200">

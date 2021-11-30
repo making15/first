@@ -20,6 +20,7 @@
 
 
     <link rel="stylesheet" type="text/css" href="../static/main.css">
+    <script src="../static/move.js"></script>
 
 
 <!-- 폰트랑 아이콘 -->
@@ -49,7 +50,7 @@
     <div class="container mx-auto px-4 py-2 flex items-center">
 
       <!-- 로고 -->
-            <div class="flex">
+            <div class="flex cursor-pointer" onclick="home();">
         <h1 class="text-blue-800 font-bold uppercase text-2xl pl-2 pr-4 xl:px-5 py-2">
         <i class="fas fa fa-globe fa-sm text-white"></i>
         <span class="text-gray-800">J</span>E<span class="text-gray-800">J</span>U</h1>
@@ -109,7 +110,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
       <button
         class="w-full text-left flex items-center outline-none focus:outline-none"
       >
-        <span class="pr-1 flex-1">미술</span>
+        <span class="pr-1 flex-1" onclick="classlist();">미술</span>
         <span class="mr-auto">
           <svg
             class="fill-current h-4 w-4
@@ -154,7 +155,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
       "
           >
             <li class="px-3 py-1 hover:bg-gray-100">카드</li>
-            <li class="px-3 py-1 hover:bg-gray-100">풍경화</li>
+            <li class="px-3 py-1 hover:bg-gray-100 cursor-pointer" onclick="detail();">풍경화</li>
           </ul>
         </li>
       </ul>
@@ -541,6 +542,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
       </nav>
           </aside>
 
+
   </header>
 <header>
       <div class="container mx-auto px-3 pt-5 mx-1 flex items-center">
@@ -727,5 +729,197 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
   
   
 </section>
+
+  <footer class="text-gray-600 body-font bg-gradient-to-b from-transparent to-blue-600">
+  <div
+    class="
+      container
+      px-5
+      py-24
+      mx-auto
+      flex
+      md:items-center
+      lg:items-start
+      md:flex-row md:flex-nowrap
+      flex-wrap flex-col
+    "
+  >
+    <div
+      class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left"
+    >
+      <a
+        href=""
+        class="
+          flex
+          title-font
+          font-medium
+          items-center
+          md:justify-start
+          justify-center
+          text-gray-900
+        "
+      >
+        
+        <span class="ml-3 text-xl">🐧 남극의 펭귄들</span>
+      </a>
+      <p class="mt-2 text-sm text-blue-400">
+        조이름을 아직도 못정했...
+      </p>
+    </div>
+    <div
+      class="
+        flex-grow flex flex-wrap
+        md:pl-20
+        -mb-10
+        md:mt-0
+        mt-10
+        md:text-left
+        text-center
+      "
+    >
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          개인회원
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >크리에이터 지원하기</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >대관 문의</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >일일 클래스 개설 문의</a
+            >
+          </li>
+
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          기업회원
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >단체 클래스 개강 문의</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >크리에이터 커넥트 문의</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >대관 문의</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >contact us</a
+            >
+          </li>
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          문제가 있나요?
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >방명록</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >건의/신고</a
+            >
+          </li>
+
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          빠른 링크
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Art</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Activity</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Books</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Events</a
+            >
+          </li>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</footer>
+
+
+
+</body>
+</html>
+
 </body>
 </html>

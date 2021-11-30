@@ -20,6 +20,7 @@
 
 
     <link rel="stylesheet" type="text/css" href="../static/main.css">
+    <script src="../static/move.js"></script>
 
 
 <!-- 폰트랑 아이콘 -->
@@ -49,8 +50,8 @@
     <div class="container mx-auto px-4 py-2 flex items-center">
 
       <!-- 로고 -->
-            <div class="flex">
-        <h1 class="text-blue-800 font-bold uppercase text-2xl pl-2 pr-4 xl:px-5 py-2">
+            <div class="flex cursor-pointer" onclick="home();">
+        <h1 class="text-blue-800 font-bold uppercase text-2xl pl-2 pr-4 xl:px-5 py-2 ">
         <i class="fas fa fa-globe fa-sm text-white"></i>
         <span class="text-gray-800">J</span>E<span class="text-gray-800">J</span>U</h1>
       </div>
@@ -62,7 +63,7 @@
         <span class="text-xl text-gray-100"><i class="fa fa-arrow-circle-down mr-1" aria-hidden="true"></i> All class</span>
       </button>
 
-       <button class="bg-blue-600 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2">
+       <button class="bg-blue-600 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2" onclick="about();">
         <span class="text-xl text-gray-100"><i class="fa fa-puzzle-piece mr-1" aria-hidden="true"></i>
         about us</span>
       </button>
@@ -109,7 +110,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
       <button
         class="w-full text-left flex items-center outline-none focus:outline-none"
       >
-        <span class="pr-1 flex-1">미술</span>
+        <span class="pr-1 flex-1" onclick="classlist();">미술</span>
         <span class="mr-auto">
           <svg
             class="fill-current h-4 w-4
@@ -154,7 +155,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
       "
           >
             <li class="px-3 py-1 hover:bg-gray-100">카드</li>
-            <li class="px-3 py-1 hover:bg-gray-100">풍경화</li>
+            <li class="px-3 py-1 hover:bg-gray-100 cursor-pointer" onclick="detail();">풍경화</li>
           </ul>
         </li>
       </ul>
