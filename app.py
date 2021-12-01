@@ -7,8 +7,12 @@ from firebase_admin import firestore
 from firebase_admin import db
 from settings import *
 
+import os
+THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+my_file = os.path.join(THIS_FOLDER, 'serviceAccountKey.json')
 
-cred = credentials.Certificate('first\serviceAccountKey.json')
+
+cred = credentials.Certificate(my_file)
 firebase_admin.initialize_app(cred, S_KEY)
 firebase_db = firestore.client()
 app = Flask(__name__, template_folder='templates')
