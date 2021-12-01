@@ -1,6 +1,28 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for, Response, jsonify
 
+
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+from firebase_admin import db
+from settings import *
+
+
+cred = credentials.Certificate('first\serviceAccountKey.json')
+firebase_admin.initialize_app(cred, S_KEY)
+firebase_db = firestore.client()
 app = Flask(__name__, template_folder='templates')
+
+
+ref = db.reference('list') #db 위치 지정
+
+
+
+@app.route('/test', methods=['GET'])
+def test_get():
+   test = ref.get()
+
+   return jsonify(test)
 
 
 
