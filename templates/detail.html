@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="making" content="we are penguins!">
+
+        <title>재즈 : 우리를 소개합니다!</title>
+<!-- 파비콘 -->
+    <link rel="shortcut icon" href="" type="image/vnd.microsoft.icon">
+<link href="../tailwind.css" rel="stylesheet">
+<link href="../static/tailwind.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+
+    <link rel="stylesheet" type="text/css" href="../static/main.css">
+    <link rel="stylesheet" type="text/css" href="../static/move.css">
+    <link rel="stylesheet" type="text/css" href="../static/loading.css">      
+    <script src="../static/move.js"></script>
+    <script src="../static/detail.js"></script>
+    <script src="../static/loading.js"></script>
+
+<!-- 폰트랑 아이콘 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          rel="stylesheet"/>
+          
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+<!-- 스타일 -->
+
+</head>
+
+<script>
+let urlParams = window.location.search
+
+var regex = /[^0-9]/g;				// 숫자가 아닌 문자열을 매칭하는 정규식
+const idx_n = urlParams.replace(regex, "");
+console.log(idx_n)
+
+$(document).ready(function () {
+
+is_detail();
+
+ });
+
+</script>
+
+<div id="loading-screen">
+    <img src="..\static\poke.gif" class="rotate" loop=infinite/>
+</div>
+
+<body class="bg-blue-100 w-full overflow-x-hidden">
+
+<header class="sticky top-0 z-50 bg-blue-500 shadow-sm" x-data="{ open: false }">
+    <div class="container mx-auto px-4 py-2 flex items-center">
+
+      <!-- 로고 -->
+            <div class="flex cursor-pointer" onclick="home();">
+
+             <img class="object-contain h-10 mr-3" src="..\static\LOGO-001.png" />
+      </div>
+ <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
+                        
+
+<div class="flex">
+      <button class="bg-blue-600 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center" x-on:click="open = ! open">
+        <span class="text-xl text-gray-100"><i class="fa fa-arrow-circle-down mr-1" aria-hidden="true"></i> All class</span>
+      </button>
+
+       <button class="bg-blue-600 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2">
+        <span class="text-xl text-gray-100" onclick="about();"><i class="fa fa-puzzle-piece mr-1" aria-hidden="true"></i>
+        about us</span>
+      </button>
+</div>
+
+
+    </div>
+
+
+       <aside x-show="open" 
+class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 px-0 bg-blue-300 sm:block container mx-auto p-3">
+<div class="flex">
+<div class="flex flex-col md:flex-row w-66 ml-6 ">
+
+<button id="pics" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="classlist();">다 보기</button>
+<button id="pics01" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="classlist();">Art class</button>
+<button id="pics02" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="classlist();">Cook class</button>
+</div>
+<div class="flex flex-col md:flex-row w-66 ml-4">
+<button id="pics03" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl md:l">Family class</button>
+<button id="pics04" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl">Activity class</button>
+<button id="pics05" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl">seoul</button>
+</div>
+</div>
+          </aside>
+
+
+  </header>
+
+
+<body class="antialiased bg-blue-200">
+  
+<div class="bg-blue-200 shadow-sm sticky top-0">
+
+<div id="detail" class="py-6">
+
+  <!-- 카테고리 표시 -->
+  <div id="11" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center space-x-2 text-gray-400 text-sm">
+      <a href="#" class="hover:underline hover:text-gray-600">미술</a>
+      <span>
+        <svg class="h-5 w-5 leading-none text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </span>
+      <a href="#" class="hover:underline hover:text-gray-600">그림</a>
+      <span>
+        <svg class="h-5 w-5 leading-none text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </span>
+      <span>풍경화</span>
+    </div>
+  </div>
+  <!-- ./ Breadcrumbs -->
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+    <div class="flex flex-col md:flex-row -mx-4">
+      <div class="md:flex-1 px-4">
+        <div x-data="{ image: 1 }" x-cloak>
+          <div class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4">
+            <div x-show="image === 1" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+              <span class="text-5xl">1</span>
+            </div>
+
+            <div x-show="image === 2" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+              <span class="text-5xl">2</span>
+            </div>
+
+            <div x-show="image === 3" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+              <span class="text-5xl">3</span>
+            </div>
+
+            <div x-show="image === 4" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+              <span class="text-5xl">4</span>
+            </div>
+          </div>
+
+          <div class="flex -mx-2 mb-4">
+            <template x-for="i in 4">
+              <div class="flex-1 px-2">
+                <button x-on:click="image = i" :class="{ 'ring-2 ring-indigo-300 ring-inset': image === i }" class="focus:outline-none w-full rounded-lg h-24 md:h-12 bg-gray-100 flex items-center justify-center">
+                  <span x-text="i" class="text-2xl" style="background-image: url('https://tailwind.build/placeholders/pictures/office.jpg')"></span>
+                </button>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+      <div class="md:flex-1 px-4">
+        <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">제주도 풍경 그리기 원데이 클래스</h2>
+        <p class="text-gray-500 text-sm">By <a href="#" class="text-indigo-600 hover:underline">피카</a></p>
+
+        <div class="flex items-center space-x-4 my-4">
+          <div>
+            <div class="rounded-lg bg-gray-100 flex py-2 px-3">
+
+              <span class="font-bold pl-1 text-blue-600 text-3xl">25000</span>
+                            <span class="text-indigo-400 ml-1 mt-1">원</span>
+            </div>
+          </div>
+          <div class="flex-1">
+            <p class="text-green-500 text-xl font-semibold">재료비 : 10000원</p>
+            <p class="text-gray-400 text-sm">부가세포함, 재료는 가져올 수 있습니다.</p>
+          </div>
+        </div>
+
+        <p class="text-gray-500">바다가 보이는 집에서 제주도의 아름다운 풍경을 수채화물감으로 표현해 보세요! 주말 이틀만 개강하는 홈클래스 입니다.</p>
+
+        <div class="flex py-4 space-x-4">
+          <div class="relative">
+            <div class="text-center left-0 pt-2 right-0 absolute block text-xs uppercase text-gray-400 tracking-wide font-semibold">개강일</div>
+            <select class="cursor-pointer appearance-none rounded-xl border border-gray-200 pl-4 pr-8 h-14 flex items-end pb-1">
+              <option>12.4</option>
+              <option>12.5</option>
+              <option>12.11</option>
+              <option>12.12</option>
+            </select>
+
+            <svg class="w-5 h-5 text-gray-400 absolute right-0 bottom-0 mb-2 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+            </svg>
+          </div>
+
+          <button type="button" class="h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
+            수강신청하기
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+  <footer class="text-gray-600 body-font bg-gradient-to-b from-transparent to-blue-600">
+  <div
+    class="
+      container
+      px-5
+      py-24
+      mx-auto
+      flex
+      md:items-center
+      lg:items-start
+      md:flex-row md:flex-nowrap
+      flex-wrap flex-col
+    "
+  >
+    <div
+      class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left"
+    >
+      <a
+        href=""
+        class="
+          flex
+          title-font
+          font-medium
+          items-center
+          md:justify-start
+          justify-center
+          text-gray-900
+        "
+      >
+        
+        <span class="ml-3 text-xl">🐧 남극의 펭귄들</span>
+      </a>
+    </div>
+    <div
+      class="
+        flex-grow flex flex-wrap
+        md:pl-20
+        -mb-10
+        md:mt-0
+        mt-10
+        md:text-left
+        text-center
+      "
+    >
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          개인회원
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >크리에이터 지원하기</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >대관 문의</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >일일 클래스 개설 문의</a
+            >
+          </li>
+
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          기업회원
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >단체 클래스 개강 문의</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >크리에이터 커넥트 문의</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >대관 문의</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >contact us</a
+            >
+          </li>
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          문제가 있나요?
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >방명록</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >건의/신고</a
+            >
+          </li>
+
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          빠른 링크
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Art</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Activity</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Books</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Events</a
+            >
+          </li>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</footer>
+
+
+
+</body>
+</html>

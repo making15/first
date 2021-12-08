@@ -4,11 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="making" content="we are penguins!">
+
+    <meta property="og:title" content="we are penguins!"/>
+    <meta property="og:description" content="취미를 가져보세요!"/>
+    <meta property="og:image" content=""/>
+
+    <link rel="shortcut icon" href="../static/favi.png">
+
 
         <title>제주도 푸른밤</title>
 <!-- 파비콘 -->
-    <link rel="shortcut icon" href="" type="image/vnd.microsoft.icon">
 <link href="../tailwind.css" rel="stylesheet">
 <link href="../static/tailwind.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -20,8 +25,14 @@
 
 
     <link rel="stylesheet" type="text/css" href="../static/main.css">
-    <script src="../static/move.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/move.css">
+    <link rel="stylesheet" type="text/css" href="../static/loading.css">    
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../static/move.js"></script>
+    <script src="../static/swipe.js"></script>
+    <script src="../static/ajax.js"></script>
+    <script src="../static/loading.js"></script>
 
 <!-- 폰트랑 아이콘 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -39,8 +50,81 @@
 <!-- 스타일 -->
 
 </head>
+<style>
+
+.flips:hover {
+  z-index:50;   
+	-webkit-animation: shadow-drop-2-lr 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: shadow-drop-2-lr 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;  
+}
 
 
+
+
+@-webkit-keyframes shadow-drop-2-lr {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+    -webkit-box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35), 12px 0 20px -12px rgba(0, 0, 0, 0.35);
+            box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35), 12px 0 20px -12px rgba(0, 0, 0, 0.35);
+  }
+}
+@keyframes shadow-drop-2-lr {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+    -webkit-box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35), 12px 0 20px -12px rgba(0, 0, 0, 0.35);
+            box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35), 12px 0 20px -12px rgba(0, 0, 0, 0.35);
+  }
+}
+
+
+</style>
+<script>
+
+$(document).ready(function () {
+
+slide1();
+slide2();
+artList();
+cookList();
+
+$(".btn").on("click",function(){
+let id = $(this).attr('id'); 
+console.log(id);
+
+$.ajax({
+    type: "GET",
+    url: "/detail/show",
+    data: {id},
+    async:false,
+    success: function(response){
+//       console.log(response)
+       window.location.href = '/detail?id=' + id;
+    }
+  });
+
+});
+
+ });
+
+ 
+</script>
+<div id="loading-screen">
+    <img src="..\static\poke.gif" class="rotate" loop=infinite/>
+</div>
 <body class="bg-blue-100 overflow-x-hidden">
 
 <div class="min-h-screen bg-blue-400 bg-gradient-to-br">
@@ -55,15 +139,15 @@
              <img class="object-contain h-10 mr-3" src="..\static\LOGO-001.png" />
       </div>
  <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
-
+                        
 
 <div class="flex">
       <button class="bg-blue-600 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center" x-on:click="open = ! open">
-        <span class="text-xl text-gray-100"><i class="fa fa-arrow-circle-down mr-1" aria-hidden="true" ></i> All class</span>
+        <span class="text-xl text-gray-100"><i class="fa fa-arrow-circle-down mr-1" aria-hidden="true"></i> All class</span>
       </button>
 
-       <button class="bg-blue-600 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2" onclick="about();">
-        <span class="text-xl text-gray-100"><i class="fa fa-puzzle-piece mr-1" aria-hidden="true"></i>
+       <button class="bg-blue-600 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2">
+        <span class="text-xl text-gray-100" onclick="about();"><i class="fa fa-puzzle-piece mr-1" aria-hidden="true"></i>
         about us</span>
       </button>
 </div>
@@ -72,19 +156,19 @@
     </div>
 
 
-       <aside x-show="open"
+       <aside x-show="open" 
 class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 px-0 bg-blue-300 sm:block container mx-auto p-3">
 <div class="flex">
 <div class="flex flex-col md:flex-row w-66 ml-6 ">
 
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl">다 보기</button>
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl">Art class</button>
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl">Cook class</button>
+<button id="pics" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="classlist();">다 보기</button>
+<button id="pics01" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="classlist();">Art class</button>
+<button id="pics02" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="classlist();">Cook class</button>
 </div>
 <div class="flex flex-col md:flex-row w-66 ml-4">
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl md:l">Family class</button>
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl">Activity class</button>
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl">seoul</button>
+<button id="pics03" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl md:l">Family class</button>
+<button id="pics04" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl">Activity class</button>
+<button id="pics05" class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl">seoul</button>
 </div>
 </div>
           </aside>
@@ -117,10 +201,10 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
                 <h4 class="hidden md:block text-xl text-gray-400">원데이 클래스</h4>
                 <h3 class="hidden md:block font-bold text-2xl text-gray-700">크리스마스 양말 & 캔들</h3>
                 <p class="text-gray-600 text-justify">벽난로 옆에 걸어둘 양말... 벽난로가 없다면 캔들은 어떠세요? 이번 겨울, 우리 집에도 산타할아버지가 오실거예요!</p>
-                <a class="flex items-baseline mt-3 text-blue-600 hover:text-blue-900 focus:text-blue-900" href="">
+                <button id="37" class="flex items-baseline mt-3 text-blue-600 hover:text-blue-900 focus:text-blue-900 cursor-pointer btn">
                     <span>클릭해서 알아보기</span>
                     <span class="text-xs ml-1">&#x279c;</span>
-                </a>
+                </button>
             </div>
         </div>
 
@@ -138,12 +222,13 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
       <!-- cards -->
 <section class="bg-blue-400">
     <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
+      <div id="artslide" class="swiper-wrapper">
           <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
                         <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
                              alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
+                             title="img" class="w-full h-80 object-cover rounded-t-lg flips">
+                        <div class="w-full p-4 justify-start flex flex-col swiper-lazy">
+              <div class="swiper-lazy-preloader"></div>
                             <div class="pt-2">
                                 <i class="far fa-heart cursor-pointer"></i>
                                 <span class="italic text-sm text-gray-400 font-medium underline">1명이 수료했어요!</span>
@@ -164,241 +249,10 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
                             </button>
                         </div>
                     </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">2명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">3명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">4명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">5명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">6명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">7명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">8명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
+
+
       </div>
     </div>
-
-
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-      const swiper = new Swiper('.mySwiper', {
-        spaceBetween: 10,
-        loop: true,
-        slidesPerView: 5,
-        centeredSlides: true,
-        autoplay: {
-        //reverseDirection:true,
-          delay: 3000,
-          disableOnInteraction: false,
-        },
-
-          breakpoints: {
-
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      CenteredSlidesBounds:true
-    },
-
-    620: {
-      slidesPerView: 2,
-      spaceBetween: 0,
-            CenteredSlidesBounds:true
-    },
-                  // when window width is >= 480px
-    820: {
-      slidesPerView: 3,
-      spaceBetween: 0,
-            CenteredSlidesBounds:true
-    },
-    // when window width is >= 640px
-    1052: {
-      slidesPerView: 4,
-      spaceBetween: 0
-    },
-    // when window width is >= 480px
-    1700: {
-      slidesPerView: 5,
-      spaceBetween: 0,
-            CenteredSlidesBounds:true
-    },
-    // when window width is >= 480px
-    2100: {
-      slidesPerView: 6,
-      spaceBetween: 0,
-            CenteredSlidesBounds:true
-    },
-
-  }
-      });
-    </script>
-
-
 
 
 
@@ -409,12 +263,13 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
       <!-- cards -->
 <section class="bg-blue-400">
     <div class="swiper mySwiper2">
-      <div class="swiper-wrapper">
+      <div id="cookslide" class="swiper-wrapper">
           <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
                         <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
                              alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
+                             title="img" class="w-full h-80 object-cover rounded-t-lg flips">
+                        <div class="w-full p-4 justify-start flex flex-col swiper-lazy">
+              <div class="swiper-lazy-preloader"></div>
                             <div class="pt-2">
                                 <i class="far fa-heart cursor-pointer"></i>
                                 <span class="italic text-sm text-gray-400 font-medium underline">1명이 수료했어요!</span>
@@ -435,250 +290,15 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
                             </button>
                         </div>
                     </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">2명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">3명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">4명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">5명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">6명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">7명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
-          <div class="transition duration-500 ease-in-out bg-white hover: transform hover:scale-90 w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col swiper-slide">
-                        <img src="https://publy.imgix.net/images/2020/06/02/1591081987_gLQJqQ1OiwjT5mHHAiJC5hnnDlIi6ORApk1wh761.jpeg?fm=pjpg"
-                             alt="img"
-                             title="img" class="w-full h-80 object-cover rounded-t-lg">
-                        <div class="w-full p-4 justify-start flex flex-col">
-                            <div class="pt-2">
-                                <i class="far fa-heart cursor-pointer"></i>
-                                <span class="italic text-sm text-gray-400 font-medium underline">8명이 수료했어요!</span>
-                            </div>
-                            <div class="flex">
-                                <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    <img src="https://user-images.githubusercontent.com/89088205/143687229-6dc5725b-cb98-47df-a56c-8eeeb1fe207c.gif"
-                                         alt="profilepic">
-                                </div>
-                                <span class="truncate mx-20 pt-1 ml-2 font-bold text-center text-sm lg:text-lg">김피카 선생님의 꽃꽃이교실</span>
-                            </div>
-                            <h4 class="truncate border-b-2 text-center text-blue-400">연인과 함께하는 꽃꽂이 추억</h4>
-                            <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
-                                상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
-                                있어요</p>
-                            <button value="button" class="mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500"
-                                    >자세히 보기
-                            </button>
-                        </div>
-                    </div>
+
       </div>
     </div>
 
 
-    <!-- Swiper JS -->
-    <script>
-
-      const swiper2 = new Swiper('.mySwiper2', {
-        spaceBetween: 10,
-        loop: true,
-        slidesPerView: 5,
-        centeredSlides: true,
-        autoplay: {
-        reverseDirection:true,
-          delay: 3000,
-          disableOnInteraction: false,
-        },
-
-          breakpoints: {
-
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      CenteredSlidesBounds:true
-    },
-
-    620: {
-      slidesPerView: 2,
-      spaceBetween: 0,
-            CenteredSlidesBounds:true
-    },
-                  // when window width is >= 480px
-    820: {
-      slidesPerView: 3,
-      spaceBetween: 0,
-            CenteredSlidesBounds:true
-    },
-    // when window width is >= 640px
-    1052: {
-      slidesPerView: 4,
-      spaceBetween: 0
-    },
-    // when window width is >= 480px
-    1700: {
-      slidesPerView: 5,
-      spaceBetween: 0,
-            CenteredSlidesBounds:true
-    },
-    // when window width is >= 480px
-    2100: {
-      slidesPerView: 6,
-      spaceBetween: 0,
-            CenteredSlidesBounds:true
-    },
-
-  }
-
-      });
-
-
-
-    </script>
-
-
-
-
-
 
 </section>
+
+
 
     <!-- footer -->
 <footer class="text-gray-600 body-font bg-gradient-to-b from-transparent to-blue-600">
@@ -713,10 +333,6 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 
         <span class="ml-3 text-xl">🐧 남극의 펭귄들</span>
       </a>
-      <p class="mt-2 text-sm text-blue-200">
-        심화2조랑 4조인게 뭔가 부르기가 애매해서
-        <br>그냥 펭귄들이라고 했어여! 나중에 회의로 조이름도 정합시다!
-      </p>
     </div>
     <div
       class="
