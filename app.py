@@ -28,7 +28,11 @@ def test_get():
 
    return jsonify(test)
 
-
+@app.route('/detail/show', methods=['GET'])
+def show_detail():
+    id = request.args.get('id')
+    print(id)
+    return jsonify(id)
 
 @app.route('/')
 def home():
