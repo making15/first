@@ -73,47 +73,6 @@ body, html{
    
 }
 
-.swiper-pagination { 
-position: absolute; 
-display: sticky;
-top: 50%; 
-left: 80%; 
-transform: translateY(-50%);
-
-
-}
-
-
-.swiper-pagination-bullet { 
-width: 100%;
-min-width: 80px; 
-min-height: 100px; 
-background: transparent;
-display: sticky;
-opacity: 1; 
-writing-mode: vertical-rl;
-text-orientation: mixed;
-color: yellow;
-}
-.swiper-pagination-bullet-active:before { 
-content: ""; 
-
-position: absolute; 
-left:90%;
-
-
-border-left: 10px solid transparent; 
-border-bottom: 10px solid transparent; 
-border-right: 10px solid blue; 
-width: 10px;
-margin-top:-10px;
-
-transition: all .5 ease-in-out; 
-
-
-
-
-}
 
 </style>
 </head>
@@ -166,7 +125,7 @@ transition: all .5 ease-in-out;
                 <div class="flex flex-row justify-center justify-between  gap-x-5">
 
                 <div class="flex flex-col justify-items-center">
-                  <p class="text-md text-gray-500 md:text-2xl">'원데이 재즈'는 하루만에 새로운 경험과 함께 결과물을 가질 수 있도록 다양한 원데이클래스를 이용자에게 연결해주는 플랫폼입니다. 이용자는 많은 검색을 통헤가 아니라 재즈 플랫폼을 통해 쉽고 간편하게 다양한 클래스를 신청할 있게됩니다. 그리고 강의 강사 또는 기관은 고객 유치가 불확실한 광고가 아닌 재즈 플래폼을 이용함으로 인해 이용자 유치를 쉽게 할 수 있게 되어 서로가 서로를 쉽고 간편하게 찾을 수 있게 됩니다.</p>
+                  <p class="text-md text-gray-500 md:text-2xl">'원데이 재즈'는 하루만에 새로운 경험과 함께 결과물을 가질 수 있도록 다양한 원데이클래스를 이용자에게 연결해주는 플랫폼입니다. 이용자는 많은 검색을 통하지 않고도 재즈 플랫폼을 통해 쉽고 간편하게 다양한 클래스를 신청할 수 있게 됩니다. 그리고 강의 강사 또는 기관은 고객 유치가 불확실한 광고가 아닌 재즈 플랫폼을 이용함으로 인해 이용자 유치를 쉽게 할 수 있게 되어 서로가 서로를 쉽고 간편하게 찾을 수 있게 됩니다.</p>
 
                 </div>
                 </div>
@@ -277,7 +236,6 @@ transition: all .5 ease-in-out;
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-var bullet = ['intro', '기능', 'about us', 'helps'];
 var swiper = new Swiper('.swiper-container', {
 
   direction: 'vertical',
@@ -286,9 +244,6 @@ var swiper = new Swiper('.swiper-container', {
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
-    renderBullet: function (index, className) {
-      return '<div class="' + className + '"><span>' + (bullet[index]) + '</span></div>';
-    }
   },
 
 freeModeSticky: true
