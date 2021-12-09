@@ -96,7 +96,7 @@ function slide2() {
     // when window width is >= 640px
     1052: {
       slidesPerView: 4,
-      spaceBetween: 0
+      spaceBetween: 0,
     },
     // when window width is >= 480px
     1700: {

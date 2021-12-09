@@ -28,7 +28,7 @@ console.log(apples[0]['product'])
       let phone = apples[0]['phone'];
       let place = apples[0]['place'];
       let detail = apples[0]['detail'];
-//      let dec = apples[0]['dec'];
+      let dec = apples[0]['dec'];
       let image01 = apples[0]['image01'];
       let image02 = apples[0]['image02'];
       let image03 = apples[0]['image03'];
@@ -106,12 +106,12 @@ console.log(place)
             </div>
           </div>
           <div class="flex-1">
-            <p class="text-green-500 text-xl font-semibold">재료비 : 10000원</p>
-            <p class="text-gray-400 text-sm">부가세포함, 재료는 가져올 수 있습니다.</p>
+            <p class="text-blue-500 text-xl font-semibold"><span id="logo" class="text-3xl">${time_H}</span>시간 클래스</p>
+            <p class="text-gray-400 text-sm">부가세 포함, *contact : ${phone}</p>
           </div>
         </div>
         <p class="text-blue-500">${detail}</p>
-        <p class="text-gray-500">바다가 보이는 집에서 제주도의 아름다운 풍경을 수채화물감으로 표현해 보세요! 주말 이틀만 개강하는 홈클래스 입니다.</p>
+        <p class="text-gray-500 mt-2">${dec}</p>
 
         <div class="flex py-4 space-x-4">
           <div class="relative">

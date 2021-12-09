@@ -770,6 +770,44 @@
     "image02": "https://user-images.githubusercontent.com/89088205/145223485-0a8c60f0-6f7c-4eda-b546-5d405745c378.jpg",
     "image03": "https://user-images.githubusercontent.com/89088205/145223534-5c7fdc4c-07da-4f0b-a970-3e104ca0698b.jpg",
     "image04": "https://user-images.githubusercontent.com/89088205/145223596-509f280c-f82a-4fad-992f-582b1fc0ac6f.jpg"
-  }  
+  },
+    {
+    "idx": "51",
+    "product": "art",
+    "p_title": "크리스마스 캔들/양말 만들기",
+    "category01": "디지털",
+    "category02": "디자인",
+    "name": "배트맨",
+    "time_H": 2,
+    "date": ["12.13","12.20","12.29","12.30"],
+    "price": "30,000",
+    "phone": "010-0330-2201",
+    "place": "105호실",
+    "detail": "메인페이지에 연결할 데이터! 작성중...",
+    "dec": "포토샵 그렇게 어렵지 않아요! 마카롱은 선명하게 눈동자는 또렷하게 얼굴은 뽀얗게 나오면 됩니다. 사진에 스티커 붙이는 방법도 알려드립니다. 2시간 투자로 포토샵 장인이 되어보세요!",
+    "image01": "https://user-images.githubusercontent.com/89088205/145223440-518d1012-4b55-4bc0-9460-de446bcbf0b2.jpg",
+    "image02": "https://user-images.githubusercontent.com/89088205/145223485-0a8c60f0-6f7c-4eda-b546-5d405745c378.jpg",
+    "image03": "https://user-images.githubusercontent.com/89088205/145223534-5c7fdc4c-07da-4f0b-a970-3e104ca0698b.jpg",
+    "image04": "https://user-images.githubusercontent.com/89088205/145223596-509f280c-f82a-4fad-992f-582b1fc0ac6f.jpg"
+  },
+    {
+    "idx": "52",
+    "product": "art",
+    "p_title": "포토샵 배우기",
+    "category01": "디지털",
+    "category02": "디자인",
+    "name": "배트맨",
+    "time_H": 2,
+    "date": ["12.13","12.20","12.29","12.30"],
+    "price": "30,000",
+    "phone": "010-0330-2201",
+    "place": "105호실",
+    "detail": "3만원으로 포샵 완성!",
+    "dec": "포토샵 그렇게 어렵지 않아요! 마카롱은 선명하게 눈동자는 또렷하게 얼굴은 뽀얗게 나오면 됩니다. 사진에 스티커 붙이는 방법도 알려드립니다. 2시간 투자로 포토샵 장인이 되어보세요!",
+    "image01": "https://user-images.githubusercontent.com/89088205/145223440-518d1012-4b55-4bc0-9460-de446bcbf0b2.jpg",
+    "image02": "https://user-images.githubusercontent.com/89088205/145223485-0a8c60f0-6f7c-4eda-b546-5d405745c378.jpg",
+    "image03": "https://user-images.githubusercontent.com/89088205/145223534-5c7fdc4c-07da-4f0b-a970-3e104ca0698b.jpg",
+    "image04": "https://user-images.githubusercontent.com/89088205/145223596-509f280c-f82a-4fad-992f-582b1fc0ac6f.jpg"
+  }      
 ]
 }

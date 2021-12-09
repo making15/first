@@ -4,19 +4,100 @@
   }
 
 
-.art1st {
-
-      position: relative;
-
+@-webkit-keyframes jello-diagonal-1 {
+  0% {
+    -webkit-transform: skew(0deg 0deg);
+            transform: skew(0deg 0deg);
+  }
+  30% {
+    -webkit-transform: skew(25deg 25deg);
+            transform: skew(25deg 25deg);
+  }
+  40% {
+    -webkit-transform: skew(-15deg, -15deg);
+            transform: skew(-15deg, -15deg);
+  }
+  50% {
+    -webkit-transform: skew(15deg, 15deg);
+            transform: skew(15deg, 15deg);
+  }
+  65% {
+    -webkit-transform: skew(-5deg, -5deg);
+            transform: skew(-5deg, -5deg);
+  }
+  75% {
+    -webkit-transform: skew(5deg, 5deg);
+            transform: skew(5deg, 5deg);
+  }
+  100% {
+    -webkit-transform: skew(0deg 0deg);
+            transform: skew(0deg 0deg);
+  }
+}
+@keyframes jello-diagonal-1 {
+  0% {
+    -webkit-transform: skew(0deg 0deg);
+            transform: skew(0deg 0deg);
+  }
+  30% {
+    -webkit-transform: skew(25deg 25deg);
+            transform: skew(25deg 25deg);
+  }
+  40% {
+    -webkit-transform: skew(-15deg, -15deg);
+            transform: skew(-15deg, -15deg);
+  }
+  50% {
+    -webkit-transform: skew(15deg, 15deg);
+            transform: skew(15deg, 15deg);
+  }
+  65% {
+    -webkit-transform: skew(-5deg, -5deg);
+            transform: skew(-5deg, -5deg);
+  }
+  75% {
+    -webkit-transform: skew(5deg, 5deg);
+            transform: skew(5deg, 5deg);
+  }
+  100% {
+    -webkit-transform: skew(0deg 0deg);
+            transform: skew(0deg 0deg);
+  }
 }
 
-.art2nd {
 
-      position: absolute;
-      display: none;
+@-webkit-keyframes blur-out-contract {
+  0% {
+    -webkit-filter: blur(0.01);
+            filter: blur(0.01);
+  }
+  100% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px) opacity(0%);
+            filter: blur(12px) opacity(0%);
+  }
+}
+@keyframes blur-out-contract {
+  0% {
+    -webkit-filter: blur(0.01);
+            filter: blur(0.01);
+  }
+  100% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px) opacity(0%);
+            filter: blur(12px) opacity(0%);
+  }
 }
 
-.art1st:hover .art2nd {
-  display: block;
 
+
+
+#logo:hover {
+	-webkit-animation: jello-diagonal-1 0.8s both;
+	        animation: jello-diagonal-1 0.8s both;
+}
+
+#textMove:hover  {
+	-webkit-animation: blur-out-contract 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: blur-out-contract 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
