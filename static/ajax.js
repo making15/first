@@ -21,7 +21,7 @@ let apples = rows.filter(value => value.product === 'art');
 
       let temp_html = `
       <div class="bg-blue-50 flex flex-row flex-initial swiper-slide w-full md:w-60 box-content max-h-50 rounded-lg justify-center">
-      <div class="bg-white hover:bg-blue-200 justify-center items-center shadow-lg rounded-lg flex flex-col flips object-contain min-h-80 max-h-80">
+      <div class="bg-white hover:bg-blue-200 justify-center items-center shadow-lg rounded-lg flex flex-col flips object-cover flex-auto min-h-80 max-h-80">
                         <img src="${image01Art}"
                              alt="img" class="overflow-hidden rounded-t-lg swiper-lazy">                              
   <div class="w-full p-4 justify-start flex flex-col ">
@@ -83,7 +83,7 @@ let pineapple = rows.filter(value => value.product === 'cook');
 
       let temp_html03 = `
       <div class="bg-blue-50 flex flex-row flex-initial swiper-slide w-full md:w-60 box-content max-h-50 rounded-lg justify-center">
-      <div class="bg-white hover:bg-blue-200 justify-center items-center shadow-lg rounded-lg flex flex-col flips object-contain min-h-80 max-h-80">
+      <div class="bg-white hover:bg-blue-200 justify-center items-center shadow-lg rounded-lg flex flex-col flips object-cover flex-auto min-h-80 max-h-80">
                         <img src="${image01Cook}"
                              alt="img" class="overflow-hidden rounded-t-lg swiper-lazy">                              
   <div class="w-full p-4 justify-start flex flex-col ">

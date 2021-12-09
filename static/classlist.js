@@ -24,8 +24,7 @@ $.ajax({
 
       let temp_html = `<div class="w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col mb-3">
                 <img src="${image01}"
-                     alt="img"
-                     title="img" class="transform hover:scale-110 w-full h-60 object-cover rounded-t-lg flex-auto">
+                     alt="img" class="transform hover:scale-110 w-full h-60 object-cover rounded-t-lg flex-auto">
 
                 <div class="w-full p-4 justify-start flex flex-col">
                     <div class="pt-2">
@@ -99,8 +98,7 @@ let apples = rows.filter(value => value.product === 'art');
 
       let temp_html02 = `<div class="w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col mb-3">
                 <img src="${image01Art}"
-                     alt="img"
-                     title="img" class="transform hover:scale-110 w-full h-60 object-cover rounded-t-lg flex-auto">
+                     alt="img" class="transform hover:scale-110 w-full h-60 object-cover rounded-t-lg flex-auto">
                 <div class="w-full p-4 justify-start flex flex-col">
                     <div class="pt-2">
                         <span class="italic text-sm text-gray-400 font-medium underline">단 <span class="text-blue-500 text-xl">${time_H_Art}</span> 시간 !</span>
@@ -173,8 +171,7 @@ let pineapple = rows.filter(value => value.product === 'cook');
  console.log(idxCook)
       let temp_html03 = `<div class="w-full md:w-80 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col mb-3">
                 <img src="${image01Cook}"
-                     alt="img"
-                     title="img" class="transform hover:scale-90 w-full h-60 object-cover rounded-t-lg flex-auto">
+                     alt="img" class="transform hover:scale-110 w-full h-60 object-cover rounded-t-lg flex-auto">
                 <div class="w-full p-4 justify-start flex flex-col">
                     <div class="pt-2">
                         <span class="italic text-sm text-gray-400 font-medium underline">단 <span class="text-blue-500 text-xl">${time_H_Cook}</span> 시간 !</span>
