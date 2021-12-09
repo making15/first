@@ -19,18 +19,13 @@ let apples = rows.filter(value => value.product === 'art');
       let p_titleArt = apples[i]['p_title'];
       let idxArt = apples[i]['idx'];
 
-      let temp_html = `
-      <div class="bg-blue-50 flex flex-row flex-initial swiper-slide w-full md:w-60 box-content max-h-50 rounded-lg justify-center">
-      <div class="bg-white hover:bg-blue-200 justify-center items-center shadow-lg rounded-lg flex flex-col flips object-cover flex-auto min-h-80 max-h-80">
+      let temp_html = `<div class="bg-blue-50 flex flex-row flex-initial swiper-slide w-full md:w-60 box-content max-h-50 rounded-lg justify-center min-h-60 max-h-60 overflow-hidden">
+      <div class="bg-white hover:bg-blue-200 justify-center items-center shadow-lg rounded-lg flex flex-col flips">
                         <img src="${image01Art}"
-                             alt="img" class="overflow-hidden rounded-t-lg swiper-lazy">                              
-  <div class="w-full p-4 justify-start flex flex-col ">
+                             alt="img" class="flex rounded-t-lg swiper-lazy object-fill relative flex-grow">                              
               <div class="swiper-lazy-preloader"></div>
-                            <div class="flex">
-                            </div>
-                    <button value="button" id="${idxArt}" class="btn transform hover:scale-110 animate-pulse mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500 rounded-md">${p_titleArt}
+                    <button value="button" id="${idxArt}" class="object-center z-10 absolute btn transform hover:scale-110 animate-pulse bg-transparent mx-15 px-4 py-2 text-white hover:bg-blue-600 rounded-md text-2xl">${p_titleArt}
                     </button>
-                        </div>
                     </div>
                     </div>`
 
@@ -81,18 +76,13 @@ let pineapple = rows.filter(value => value.product === 'cook');
       let idxCook = pineapple[i]['idx'];
 
 
-      let temp_html03 = `
-      <div class="bg-blue-50 flex flex-row flex-initial swiper-slide w-full md:w-60 box-content max-h-50 rounded-lg justify-center">
-      <div class="bg-white hover:bg-blue-200 justify-center items-center shadow-lg rounded-lg flex flex-col flips object-cover flex-auto min-h-80 max-h-80">
+      let temp_html03 = `<div class="bg-blue-50 flex flex-row flex-initial swiper-slide w-full md:w-60 box-content max-h-50 rounded-lg justify-center min-h-60 max-h-60 overflow-hidden">
+      <div class="bg-white hover:bg-blue-200 justify-center items-center shadow-lg rounded-lg flex flex-col flips">
                         <img src="${image01Cook}"
-                             alt="img" class="overflow-hidden rounded-t-lg swiper-lazy">                              
-  <div class="w-full p-4 justify-start flex flex-col ">
+                             alt="img" class="flex rounded-t-lg swiper-lazy object-fill relative flex-grow">                              
               <div class="swiper-lazy-preloader"></div>
-                            <div class="flex">
-                            </div>
-                    <button value="button" id="${idxCook}" class="btn transform hover:scale-110 animate-pulse mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500 rounded-md">${p_titleCook}
+                    <button value="button" id="${idxCook}" class="object-center z-10 absolute btn transform hover:scale-110 animate-pulse bg-transparent mx-15 px-4 py-2 text-white hover:bg-blue-600 rounded-md text-2xl">${p_titleCook}
                     </button>
-                        </div>
                     </div>
                     </div>`
 

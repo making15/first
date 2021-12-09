@@ -284,10 +284,10 @@
     "place": "곰 클래스",
     "detail": "마음 가는대로, 즐거운 여행 드로잉",
     "dec": "‘여행’이라는 단어는 언제들어도 설레이지요. 그래서인지 더욱 낭만적으로 느껴지는 ‘여행드로잉’. <가볍게, 여행드로잉> 원데이클래스는 작지만 도톰한 엽서지에 '여행드로잉’을 그려보는 클래스입니다. 언젠가 여행지에서 드로잉을 해보고싶으시거나, 다녀왔던 여행을 특별하게 기억하고 싶으신 분들, 일상도 여행처럼 여기시는 분들에게 권해드려요", 
-    "image01":"https://user-images.githubusercontent.com/95212509/145339480-bd46479f-f5f9-46ec-94ab-bc1188407452.jpg",
-    "image02":"https://user-images.githubusercontent.com/95212509/145339549-b42185f0-fa87-4802-8c61-97df7294d7ba.jpg",
-    "image03":"https://user-images.githubusercontent.com/95212509/145339509-85751471-4e7b-43de-9f3d-a95ebc7fc3ac.jpg",
-    "image04":"https://user-images.githubusercontent.com/95212509/145339520-f42b0fcf-acae-4269-b5af-fef9ed878e6f.jpg"
+    "image01":"https://t1.daumcdn.net/cfile/tistory/998A123A5B4F0D3008",
+    "image02":"https://t1.daumcdn.net/cfile/tistory/998A123A5B4F0D3008",
+    "image03":"https://t1.daumcdn.net/cfile/tistory/998A123A5B4F0D3008",
+    "image04":"https://t1.daumcdn.net/cfile/tistory/998A123A5B4F0D3008"
   },
       {
     "idx": "17",
@@ -526,7 +526,7 @@
   }, 
       {
     "idx": "29",
-    "product": "book",
+    "product": "cook",
     "p_title": "English book for instruction about my cooking",
     "category01": "인문/체험",
     "category02": "어학",
