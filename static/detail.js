@@ -84,8 +84,8 @@ console.log(place)
           <div class="flex -mx-2 mb-4">
             <template x-for="i in 4">
               <div class="flex-1 px-2">
-                <button x-on:click="image = i" :class="{ 'ring-2 ring-indigo-300 ring-inset': image === i }" class="focus:outline-none w-full rounded-lg h-20 md:h-12 bg-blue-400 flex items-center justify-center transform hover:scale-110">
-                  <span x-text="i" class="text-2xl"></span>
+                <button x-on:click="image = i" :class="{ 'ring-4 ring-indigo-400 ring-inset': image === i }" class="focus:outline-none w-full rounded-lg h-15 md:h-12 bg-blue-400 flex items-center justify-center transform hover:scale-110">
+                  <span x-text="i" class="text-2xl text-blue-400"></span>
                 </button>
               </div>
             </template>
