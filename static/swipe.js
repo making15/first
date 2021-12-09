@@ -5,10 +5,9 @@ function slide1() {
         preloadImages: false,
     // Enable lazy loading
         lazy: true,
-
         spaceBetween: 10,
         loop: true,
-        slidesPerView: 5,
+        slidesPerView: 3,
         centeredSlides: true,
         autoplay: {
         //reverseDirection:true,
@@ -33,26 +32,20 @@ function slide1() {
     },
                   // when window width is >= 480px
     820: {
-      slidesPerView: 3,
+      slidesPerView: 2,
       spaceBetween: 0,
       CenteredSlidesBounds:true,
       watchSlidesVisibility: true
     },
     // when window width is >= 640px
     1052: {
-      slidesPerView: 4,
+      slidesPerView: 3,
       spaceBetween: 0,
       CenteredSlidesBounds:true
     },
     // when window width is >= 480px
     1700: {
-      slidesPerView: 5,
-      spaceBetween: 0,
-      CenteredSlidesBounds:true
-    },
-    // when window width is >= 480px
-    2100: {
-      slidesPerView: 6,
+      slidesPerView: 4,
       spaceBetween: 0,
       CenteredSlidesBounds:true
     },
@@ -70,7 +63,7 @@ function slide2() {
 
         spaceBetween: 10,
         loop: true,
-        slidesPerView: 5,
+        slidesPerView: 4,
         centeredSlides: true,
         autoplay: {
         reverseDirection:true,
@@ -108,12 +101,6 @@ function slide2() {
     // when window width is >= 480px
     1700: {
       slidesPerView: 5,
-      spaceBetween: 0,
-      CenteredSlidesBounds:true
-    },
-    // when window width is >= 480px
-    2100: {
-      slidesPerView: 6,
       spaceBetween: 0,
       CenteredSlidesBounds:true
     },

@@ -9,7 +9,7 @@ from settings import *
 
 import os
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-my_file = os.path.join(THIS_FOLDER, ('serviceAccountKey.json')
+my_file = os.path.join(THIS_FOLDER, 'serviceAccountKey.json')
 
 
 cred = credentials.Certificate(my_file)
@@ -36,7 +36,7 @@ def show_detail():
 
 @app.route('/')
 def home():
-        return render_template('index.html')
+        return render_template("index.html")
 
 @app.route('/about')
 def about():
