@@ -15,7 +15,7 @@ $.ajax({
 
 let apples = rows.filter(value => value.product === 'art');
 
-      let image01Art = apples[i]['image01'];  
+      let image01Art = apples[i]['image01'];
       let p_titleArt = apples[i]['p_title'];
       let detailArt = apples[i]['detail'];
       let idxArt = apples[i]['idx'];
@@ -40,18 +40,18 @@ let apples = rows.filter(value => value.product === 'art');
                             <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
                                 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
                                 있어요</p>
-                    <button value="button" id="${idxArt}" class="btn transform hover:scale-110 animate-pulse mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500">자세히보기
+                    <button value="button" id="${idxArt}" class="btn transform hover:scale-110 animate-pulse mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500">${p_titleArt}
                     </button>
                         </div>
                     </div>`
 
   $('#artslide').prepend(temp_html);
-  
+
 
 };
 
 $(".btn").on("click",function(){
-let id = $(this).attr('id'); 
+let id = $(this).attr('id');
 console.log(id);
 
 $.ajax({
@@ -116,7 +116,7 @@ let pineapple = rows.filter(value => value.product === 'cook');
                             <p class="truncate my-4">여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한 여기에
                                 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요! 매일매일 신선한여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가 있어요여기에 상세내용이 들어갑니다 수선화를 고르면 추가점수가
                                 있어요</p>
-                    <button value="button" id="${idxCook}" class="btn transform hover:scale-110 animate-pulse mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500">자세히 보기
+                    <button value="button" id="${idxCook}" class="btn transform hover:scale-110 animate-pulse mx-10 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500">${p_titleCook}
                     </button>
                         </div>
                     </div>`
@@ -126,7 +126,7 @@ let pineapple = rows.filter(value => value.product === 'cook');
 };
 
 $(".btn").on("click",function(){
-let id = $(this).attr('id'); 
+let id = $(this).attr('id');
 console.log(id);
 
 $.ajax({
@@ -148,4 +148,3 @@ $.ajax({
 
 
 
- 
